@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Amicable Numbers </title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            /*works*/
+            function isFactor(num, factor) {
+                var remainder = num % factor; 
+                if (remainder == 0) {
+                    return 1;
+                }
+                return 0;
+            }
+
+            function showArray(array) {
+                var i;
+                var len = array.length;
+                var string = "";
+                for (i = 0; i < len; i++) {
+                    string = string + " " + array[i];
+                }
+                
+                document.getElementById("arrayInfo").innerHTML = string;
+            }
+
+            function addArray(array) {
+                var sum = 0;
+                var i;
+                var len = array.length;
+                
+                //document.getElementById("arrayInfo").innerHTML = "length: " + len;
+                for (i = 0; i < len; i++) {
+                    sum = sum + array[i];
+                }
+                
+                /*document.getElementById("arrayInfo").innerHTML = sum*/
+                return sum;
+            }
+
+            function getFactors(num) {
+                var factor;
+                var index = 0;
+                var remainder = 0;
+                var array  = [];
+                var string = "";
+                for (factor = 1; factor < num; factor++) {
+                    var truth = 0;
+                    truth = isFactor(num, factor);
+                    if (truth == 1) {
+                        string = string + " " + factor;
+                        array[index] = factor;
+                        index = index + 1;
+                    }
+                }
+                
+                /*document.getElementById("arrayInfo").innerHTML = "factors: " + string;*/
+                return array;
+            }
+
+            function calc() {
+                var num1 = document.getElementById("1num").value; /*works*/
+                var num2 = document.getElementById("2num").value; /*works*/
+                var arr1 = getFactors(num1); 
+                var arr2 = getFactors(num2);
+                var sum1 = addArray(arr1);
+                var sum2 = addArray(arr2);
+                
+                if ((sum1 == num2) && (sum2 == num1)) {
+                    document.getElementById("arrayInfo").innerHTML = "These two numbers are amicable.";
+                }
+                else {
+                    document.getElementById("arrayInfo").innerHTML = "These two numbers are not amicable.";
+                }
+            
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>Amicable Numbers</h1>
+        <form>
+            <label for="1num">1st Number:</label><br>
+            <input type="text" id="1num" name="1num" value=""><br>
+            <label for="2num">2nd Number:</label><br>
+            <input type="text" id="2num" name="2num" value=""><br><br>
+            <input type="button" value="Submit" id ="btn" onclick="calc()">
+          </form>
+          <div id= "arrayInfo"> here </div>
+        
+    </body>
+</html>
