@@ -29,13 +29,10 @@
                 var sum = 0;
                 var i;
                 var len = array.length;
-                
-                //document.getElementById("arrayInfo").innerHTML = "length: " + len;
+              
                 for (i = 0; i < len; i++) {
                     sum = sum + array[i];
                 }
-                
-                /*document.getElementById("arrayInfo").innerHTML = sum*/
                 return sum;
             }
 
@@ -54,14 +51,12 @@
                         index = index + 1;
                     }
                 }
-                
-                /*document.getElementById("arrayInfo").innerHTML = "factors: " + string;*/
                 return array;
             }
 
             function calc() {
-                var num1 = document.getElementById("1num").value; /*works*/
-                var num2 = document.getElementById("2num").value; /*works*/
+                var num1 = document.getElementById("1num").value; 
+                var num2 = document.getElementById("2num").value; 
                 var arr1 = getFactors(num1); 
                 var arr2 = getFactors(num2);
                 var sum1 = addArray(arr1);
@@ -87,7 +82,7 @@
             <input type="text" id="2num" name="2num" value=""><br><br>
             <input type="button" value="Submit" id ="btn" onclick="calc()">
           </form>
-          <div id= "arrayInfo"> here </div>
+          <div id= "arrayInfo"> &nbsp </div>
         
     </body>
 </html>
